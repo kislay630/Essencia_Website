@@ -1,0 +1,305 @@
+{% extends 'FirstLevel/home_base.html' %}
+{% load static %}
+{% block body_block %}
+<p3 style="color:white;">{{Salary_Update}}</p3>
+<br>
+
+{% if DEPARTMENT == 'OTR' %}
+    <p3 style="color:white;">{{OTR}}</p3>
+    <form method="post", action="{% url 'basic_app:FULLERTON_OTR_BILLING' %}" enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit">Salary</button>
+    </form>
+    <p3 style="color:white;">{{FR}}</p3>
+    <form method="post", action="{% url 'basic_app:FULLERTON_FR_BILLING' %}", enctype="multipart/form-data">
+        {% csrf_token %}
+        <button type="submit">salary</button>
+    </form>
+{% endif %}
+
+
+{% if DEPARTMENT == 'TW' %}
+    {% if PROCESS == 'IDFC' %}
+        <p3 style="color:white;">IDFC_TC_SALARY</p3>
+        <form method="post", action="{% url 'basic_app:IDFC_TW_SALARY_TC' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">Salary-TC</button>
+        </form>
+        <p3 style="color:white;">IDFC_FOS_SALARY</p3>
+        <form method="post", action="{% url 'basic_app:IDFC_TW_SALARY' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">Salary-FOS</button>
+        </form>
+
+        <p3 style="color:white;">TC SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>
+        <br>
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns123 %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel123 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p3 style="color:white;">FOS INCENTIVE SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>
+        <br>
+        <!--IDFC-TW PIVOT SALARY(Incentive)-->
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p3 style="color:white;">FOS FIXED SALARY {{PROCESS}}-{{DEPARTMENT}} </p3>
+        <!--Including Fix Salary-->
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns2 %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel2 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+ <br>
+    <a href="{% url 'basic_app:IDFC_TW_SALARY_FIXED_DOWNLOAD' %}">IDFC_TW_SALARY_FIXED_DOWNLOAD</a>
+    <a href="{% url 'basic_app:IDFC_TW_SALARY_INCENTIVE_PIVOT_DOWNLOAD' %}">IDFC_TW_SALARY_INCENTIVE_PIVOT_DOWNLOAD</a>
+    <a href="{% url 'basic_app:IDFC_TW_SALARY_INCENTIVE_DOWNLOAD' %}">IDFC_TW_SALARY_INCENTIVE_DOWNLOAD</a>
+    {% endif %}
+{% endif %}
+
+
+{% if DEPARTMENT == 'TW' %}
+    {% if PROCESS == 'L&T' %}
+        <p3 style="color:white;">L_T_TC_SALARY</p3>
+        <form method="post", action="{% url 'basic_app:L_T_TW_SALARY_TC' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">Salary-TC</button>
+        </form>
+        <p3 style="color:white;">L_T_FOS_SALARY</p3>
+        <form method="post", action="{% url 'basic_app:L_T_TW' %}" enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">Salary-FOS</button>
+        </form>
+        <p3 style="color:white;">TC SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns12334 %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel12334 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for col in columns1233 %}
+                    <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+                {% endfor %}
+            </tr>
+            {% for row in excel1233 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                    {% for j in row %}
+                        <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                    {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p3 style="color:white;">FOS INCENTIVE SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>
+        <br>
+        <!--L_T-TW PIVOT SALARY(Incentive)-->
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+
+        <p3 style="color:white;">FOS FIXED SALARY {{PROCESS}}-{{DEPARTMENT}} </p3>
+        <!--Including Fix Salary-->
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns2 %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel2 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+     <br>
+    <a href="{% url 'basic_app:L_T_SALARY_FIXED_DOWNLOAD' %}">L_T_SALARY_FIXED_DOWNLOAD</a>
+    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD' %}">L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD</a>
+    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_DOWNLOAD' %}">L_T_SALARY_INCENTIVE_DOWNLOAD</a>
+    {% endif %}
+{% endif %}
+
+
+{% if DEPARTMENT == 'CD' %}
+    {% if PROCESS == 'BAJAJ' %}
+        <p3 style="color:white;">BAJAJ_TC_SALARY</p3>
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns12334 %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel12334 %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+ <br>
+    <a href="{% url 'basic_app:BAJAJ_CD_SALARY_DOWNLOAD' %}">BAJAJ_CD_SALARY_DOWNLOAD</a>
+    {% endif %}
+{% endif %}
+
+
+{% if DEPARTMENT == 'HL' %}
+    {% if PROCESS == 'IDFC' %}
+        <hr>
+        <form method="post", enctype="multipart/form-data">
+            {% csrf_token %}
+            <button type="submit">Salary</button>
+        </form>
+
+        <p3 style="color:white;">FOS INCENTIVE SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>
+        <br>
+        <!--IDFC-HL PIVOT SALARY(Incentive)-->
+        <table>
+            <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+            {% for col in columns %}
+                <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>
+            {% endfor %}
+            </tr>
+            {% for row in excel %}
+                <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">
+                {% for j in row %}
+                    <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>
+                {% endfor %}
+                </tr>
+            {% endfor %}
+        </table>
+        <br>
+    <a href="{% url 'basic_app:IDFC_HL_SALARY_DOWNLOAD' %}">IDFC_HL_SALARY_DOWNLOAD</a>
+    <a href="{% url 'basic_app:IDFC_HL_TL_INCENTIVE_DOWNLOAD' %}">IDFC_HL_TL_INCENTIVE_DOWNLOAD</a>
+    <a href="{% url 'basic_app:IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD' %}">IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD</a>
+    {% endif %}
+{% endif %}
+<hr>
+<!--<p3 style="color:white;"Salary for FULLERTON-FR</p3>-->
+<!--<br>-->
+<!--<p3 style="color:white;">{{FR}}</p3>-->
+<!--<table>-->
+<!--    <tr style="color:black;background-color:white;color:black;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--    {% for col in columns1 %}-->
+<!--        <th style="color:black;background-color:white;color:black;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>-->
+<!--    {% endfor %}-->
+<!--    </tr>-->
+<!--    {% for row in excel1 %}-->
+<!--        <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--        {% for j in row %}-->
+<!--            <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>-->
+<!--        {% endfor %}-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+<!--<hr>-->
+<!--<p3 style="color:white;">FOS FIXED SALARY {{PROCESS}}-{{DEPARTMENT}} </p3>-->
+<!--&lt;!&ndash;Including Fix Salary&ndash;&gt;-->
+<!--<table>-->
+<!--    <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--    {% for col in columns2 %}-->
+<!--        <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>-->
+<!--    {% endfor %}-->
+<!--    </tr>-->
+<!--    {% for row in excel2 %}-->
+<!--        <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--        {% for j in row %}-->
+<!--            <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>-->
+<!--        {% endfor %}-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+<!--<hr>-->
+<!--<br>-->
+<!--<br>-->
+<!--<p3 style="color:white;">FOS INCENTIVE SALARY {{PROCESS}}-{{DEPARTMENT}}</p3>-->
+<!--<br>-->
+<!--IDFC-TW PIVOT SALARY(Incentive)-->
+<!--<table>-->
+<!--    <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--    {% for col in columns %}-->
+<!--        <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>-->
+<!--    {% endfor %}-->
+<!--    </tr>-->
+<!--    {% for row in excel %}-->
+<!--        <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--        {% for j in row %}-->
+<!--            <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>-->
+<!--        {% endfor %}-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+<!--L_T TC Salary-->
+<!--<table>-->
+<!--    <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--    {% for col in columns1233 %}-->
+<!--        <th style="color:black;background-color:white;border:1px solid black;border-right:none;font-size:12px;border-top-width:3px;border-bottom-width:3px;" >{{col}}</th>-->
+<!--    {% endfor %}-->
+<!--    </tr>-->
+<!--    {% for row in excel1233 %}-->
+<!--        <tr style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">-->
+<!--        {% for j in row %}-->
+<!--            <td style="color:black;background-color:white;border:1px solid black;font-size:11px;font-weight:normal;text-align:center;border-top:none;border-right:none;">{{j}}</td>-->
+<!--        {% endfor %}-->
+<!--        </tr>-->
+<!--    {% endfor %}-->
+<!--</table>-->
+
+<p3 style="color:white;>"{{error}}</p3>
+
+{% endblock %}
