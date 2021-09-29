@@ -74,7 +74,7 @@
 
 @keyframes slideMe3{
     0%{
-        transform: skewX(3deg) translateX(-900px);
+        transform: skewX(3deg) translateX(-100px);
     }
     100%{
         transform: skew(0deg);

@@ -62,12 +62,168 @@
           color: white;
           text-decoration: underline;
           }
+      .table1{
+      color: white;
+      border-radius: 116px;
+      margin-right: 0px;
+      width:654px;
+      height:182px;
+      vertical-align: middle;
+      text-align: center;
+      font-size: 19px;
+      float: left;
+      animation: slideMe 2s ease-in;
+        }
+
+      @keyframes slideMe{
+      0%{
+        transform: skewX(3deg) translateX(-900px);
+        }
+      100%{
+        transform: skew(0deg);
+        }
+          }
+
+      .table1:hover{
+        box-shadow: 0 0 40px 0px rgb(211 ,174 ,109);
+          }
+
+       .top{
+        height:232px;
+        width:825px;
+            }
+
+        img{
+          height:200px;
+           width:135px;
+          padding-bottom: 50px;
+      padding-top: 41px;
+    }
+
+      .table2{
+    margin-top: 108px;
+    color: white;
+    border-radius: 116px;
+    margin-right: 0px;
+    width:654px;
+    height:182px;
+    vertical-align: middle;
+    font-size: 19px;
+    float:right;
+    animation: slideMe2 5s ease-in;
+    }
+
+    @keyframes slideMe2{
+    0%{
+        transform: skewX(3deg) translateX(-1900px);
+    }
+    100%{
+        transform: skew(0deg);
+    }
+    }
+
+    .table2:hover{
+    box-shadow: 0 0 40px 0px rgb(211 ,174 ,109);
+    }
+
+    .table3{
+    margin-top: 85px;
+    color: white;
+    border-radius: 116px;
+    width:654px;
+    height:182px;
+    animation: slideMe3 7s ease-in;
+    font-size: 19px;
+    float: left;
+    }
+
+    @keyframes slideMe3{
+    0%{
+        transform: skewX(3deg) translateX(-1800px);
+    }
+    100%{
+        transform: skew(0deg);
+    }
+    }
+
+    .table3:hover{
+    box-shadow: 0 0 40px 0px rgb(211 ,174 ,109);
+    }
+    @media(max-width:1500px) {
+
+    .table1{
+    margin-top: 85px;
+   color: white;
+   border-radius: 116px;
+   width:654px;
+   height:182px;
+    animation: mymove1 2s  ease-in;
+
+    /* vertical-align: middle; */
+   font-size: 19px;
+   float: left;
+   /* padding: 20px; */
+  }
+
+  @keyframes mymove1 {
+    0% {
+			transform: translateY(-200%);
+		}
+		100% {
+			transform: translateY(0);
+		}
+  }
+.table2{
+  margin-top: 85px;
+ color: white;
+ border-radius: 116px;
+ width:654px;
+ height:182px;
+  animation:  mymove2 6s   ease-in;
+
+ /* vertical-align: middle; */
+ font-size: 19px;
+ float: left;
+ /* padding: 20px; */
+}
+@keyframes mymove2 {
+  0% {
+    transform: translateY(-500%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+.table3{
+  margin-top: 85px;
+ color: white;
+ border-radius: 116px;
+ width:654px;
+ height:182px;
+  animation:  mymove3 10s   ease-in;
+
+ /* vertical-align: middle; */
+ font-size: 19px;
+ float: left;
+}
+@keyframes mymove3 {
+  0% {
+    transform: translateY(-800%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+  }
+
+  }
+
+
   </style>
 </head>
 <body>
-  <h1 style="margin-bottom:0px;margin-top:0px;border-left-style:solid;border-left-width:0px; margin-left:110px; color:white">VISION, MISSION & VALUES</h1>
+  <h1 style="margin-bottom:0px;margin-top:100px;border-left-style:solid;border-left-width:0px; margin-left:110px; color:white">VISION, MISSION & VALUES</h1>
   <hr color="#d3ae6d" style="margin-left:115px; margin-right:50px;">
-  <ol class="oll" style="width:400px;padding-bottom:10px;padding-left:20px;padding-top:0px;margin-top:0px;">
+  <ol class="oll" style="width:400px;padding-bottom:15px;padding-left:20px;padding-top:0px;margin-top:0px;">
       <li>
         <a href="{% url 'basic_app:index' %}" style="padding-left:95px; margin-right:5px;">Home</a>
       </li>
@@ -81,7 +237,7 @@
       <tr>
           <th><img src="{% static 'FirstLevel/images/vissionlogo1.png' %}"></th>
           <th><HR COLOR= "GREY" WIDTH= "100%" SIZE= "150 PIXEL"></th>
-          <th style="padding-bottom: 33px;">To be India’s leading cred-coll agency with complete focus on delivering performance for our brand partners while ensuring work transparency with complete data privacy & safety.</th>
+          <th style="padding-bottom: 33px; color:white;">To be India’s leading cred-coll agency with complete focus on delivering performance for our brand partners while ensuring work transparency with complete data privacy & safety.</th>
       </tr>
     </table>
   </div>
@@ -91,7 +247,7 @@
       <tr>
         <th><img src="{% static 'FirstLevel/images/missionlogo1.png' %}"></th>
         <th><HR COLOR= "GREY" WIDTH= "100%" SIZE= "150 PIXEL"></th>
-        <th style="padding-bottom: 33px;">Clear focus to deliver ON TIME IN FULL (OTIF) targets assigned by our brand partners with pace, people, processes and performance orientation.</th>
+        <th style="padding-bottom: 33px;color:white;">Clear focus to deliver ON TIME IN FULL (OTIF) targets assigned by our brand partners with pace, people, processes and performance orientation.</th>
       </tr>
     </table>
   </div>
@@ -101,7 +257,7 @@
       <tr>
         <th><img src="{% static 'FirstLevel/images/valueslogo1.png' %}"></th>
         <th><HR COLOR= "GREY" WIDTH= "50%" SIZE= "150 PIXEL"></th>
-        <th style="padding-bottom: 33px;">Clear focus to deliver ON TIME IN FULL (OTIF) targets assigned by our brand partners with pace, people, processes and performance orientation.</th>
+        <th style="padding-bottom: 33px;color:white;">Clear focus to deliver ON TIME IN FULL (OTIF) targets assigned by our brand partners with pace, people, processes and performance orientation.</th>
       </tr>
     </table>
   </div>
