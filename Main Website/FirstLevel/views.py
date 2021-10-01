@@ -304,6 +304,15 @@ def L_T_SALARY_INCENTIVE_DOWNLOAD(request):
                             content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = "attachment; filename=PER PAID CASE L&T.xlsx"
     return response
+def L_T_TC_SALARY_DOWNLOAD(request):
+    # fill these variables with real values
+    filename = os.path.join(BASE_DIR, 'media/L_T/TC Incentive/TC Performance L_T.xlsx')
+
+    excel = open(filename, 'rb')
+    response = HttpResponse(excel,
+                            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = "attachment; filename=TC Incentive L&T.xlsx"
+    return response
 
 def IDFC_TW_SALARY_FIXED_DOWNLOAD(request):
     # fill these variables with real values
@@ -333,6 +342,16 @@ def IDFC_TW_SALARY_INCENTIVE_DOWNLOAD(request):
     response = HttpResponse(excel,
                             content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
     response['Content-Disposition'] = "attachment; filename=PER PAID CASE IDFC-TW.xlsx"
+    return response
+
+def IDFC_TW_TC_SALARY_DOWNLOAD(request):
+    # fill these variables with real values
+    filename = os.path.join(BASE_DIR, 'media/IDFC_TW/TC Incentive/IDFC_TW TC Incentive.xlsx')
+
+    excel = open(filename, 'rb')
+    response = HttpResponse(excel,
+                            content_type='application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+    response['Content-Disposition'] = "attachment; filename=TC INCENTIVE IDFC-TW.xlsx"
     return response
 
 def BAJAJ_CD_SALARY_DOWNLOAD(request):
@@ -7532,6 +7551,15 @@ def MASTER_SALARY_TW(request):
                 F.loc[i,'SETTLEMENT_POS%']=round((F.loc[i,'SETTLEMENT_POS']/F.loc[i,'TOTAL_POS'])*100,2)
                 F.loc[i,'NM_POS%']=round((F.loc[i,'NM_POS']/F.loc[i,'TOTAL_POS'])*100,2)
                 F.loc[i,'PART_PAID_POS%']=round((F.loc[i,'PART_PAID_POS']/F.loc[i,'TOTAL_POS'])*100,2)
+                F.loc[i, 'TOTAL_POS'] = round(F.loc[i, 'TOTAL_POS'], 2)
+                F.loc[i, 'FLOW_POS'] = round(F.loc[i, 'FLOW_POS'], 2)
+                F.loc[i, 'SB_POS'] = round(F.loc[i, 'SB_POS'], 2)
+                F.loc[i, 'RB_POS'] = round(F.loc[i, 'RB_POS'], 2)
+                F.loc[i, 'NM_POS'] = round(F.loc[i, 'NM_POS'], 2)
+                F.loc[i, 'PART_PAID_POS'] = round(F.loc[i, 'PART_PAID_POS'], 2)
+                F.loc[i, 'RB_POS'] = round(F.loc[i, 'RB_POS'], 2)
+                F.loc[i, 'FORECLOSE_POS'] = round(F.loc[i, 'FORECLOSE_POS'], 2)
+                F.loc[i, 'SETTLEMENT_POS'] = round(F.loc[i, 'SETTLEMENT_POS'], 2)
 
             for i in range(0,len(F['NM_CASES'])):
                 F.loc[i,'PERFORMANCE']=F.loc[i,'SB_POS%']+F.loc[i,'RB_POS%']+F.loc[i,'NM_POS%']+F.loc[i,'FORECLOSE_POS%']+F.loc[i,'SETTLEMENT_POS%']
@@ -7539,8 +7567,13 @@ def MASTER_SALARY_TW(request):
             for i in range(0,len(F['NM_POS'])):
                 F.loc[i,'Additional_Performance']=F.loc[i,'RB_POS%']+F.loc[i,'NM_POS%']+F.loc[i,'FORECLOSE_POS%']+F.loc[i,'SETTLEMENT_POS%']
 
-            F.to_excel('Performance.xlsx',index=False)
+            for i in range(0, len(F['FLOW_CASES'])):
+                F.loc[i, 'PERFORMANCE'] = round(F.loc[i, 'PERFORMANCE'], 2)
+                F.loc[i, 'Additional_Performance'] = round(F.loc[i, 'Additional_Performance'], 2)
 
+            F.to_excel(
+                r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/Performance.xlsx',
+                index=False)
             #
             # FINAL TABLE COPY CREATION
             #
@@ -7563,7 +7596,9 @@ def MASTER_SALARY_TW(request):
             FINAL_COPY=FINAL_COPY.merge(A,left_on='FINAL PAID FOS',right_on='NAMES',how='left')
 
             FINAL_COPY.drop(['DEPARTMENT_ID','END_DATE','HIRE_DATE','PHONE_NUMBER','LOCATION_ID','SALARY',
-                             'TYPE_OF_SALARY','MANAGEMENT_LEVEL','NAMES'],axis=1,inplace=True)
+                            'TYPE_OF_SALARY', 'MANAGEMENT_LEVEL', 'NAMES', 'ID', 'DATE_OF_BIRTH'], axis = 1, inplace = True)
+
+
 
             pick_up_case=[]
             for i in range(0,len(FINAL_COPY['AGREEMENTID'])):
@@ -7901,17 +7936,38 @@ def MASTER_SALARY_TW(request):
             FINAL_COPY.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE.xlsx',index=False)
 
             FINAL_COPY1 = pd.DataFrame(FINAL_COPY.groupby(['PRODUCT','FINAL PAID FOS'])['PER PAID CASE'].sum()).reset_index()
+            li1 = []
+            for i in range(0, len(FINAL_COPY['PRODUCT'])):
+                if (FINAL_COPY.loc[i, 'FINAL PAID FOS'] == 'NO FOS') or (
+                        FINAL_COPY.loc[i, 'FINAL PAID FOS'] == '--') or (
+                        FINAL_COPY.loc[i, 'FINAL PAID FOS'] == 'FUNDING'):
+                    li1.append(i)
+
+            FINAL_COPY.drop(li1, axis=0, inplace=True)
+
+            FINAL_COPY = FINAL_COPY.reset_index(drop=True)
 
             FINAL_COPY1.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE(PIVOT).xlsx', index=False)
 
             FF = pd.DataFrame(FINAL_COPY[FINAL_COPY['PRODUCT']=='IDFC-TW']).reset_index(drop=True)
             FF1 = pd.DataFrame(FINAL_COPY1[FINAL_COPY1['PRODUCT']=='IDFC-TW']).reset_index(drop=True)
+            FF1 = FF1.merge(A, left_on='FINAL PAID FOS', right_on='NAMES', how='left')
+            FF1.drop(['DEPARTMENT_ID', 'END_DATE', 'HIRE_DATE', 'PHONE_NUMBER', 'LOCATION_ID', 'SALARY',
+                      'TYPE_OF_SALARY', 'MANAGEMENT_LEVEL', 'NAMES', 'ID', 'DATE_OF_BIRTH', 'DESIGNATION', 'STAFF'],
+                     axis=1,
+                     inplace=True)
+
             FF.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE IDFC-TW.xlsx',index=False)
             FF1.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE(PIVOT) IDFC-TW.xlsx',index=False)
 
 
             FF2 = pd.DataFrame(FINAL_COPY[FINAL_COPY['PRODUCT']=='L&T']).reset_index(drop=True)
             FF3 = pd.DataFrame(FINAL_COPY1[FINAL_COPY1['PRODUCT']=='L&T']).reset_index(drop=True)
+            FF3 = FF3.merge(A, left_on='FINAL PAID FOS', right_on='NAMES', how='left')
+            FF3.drop(
+                ['DEPARTMENT_ID', 'END_DATE', 'HIRE_DATE', 'PHONE_NUMBER', 'LOCATION_ID', 'SALARY', 'TYPE_OF_SALARY',
+                 'MANAGEMENT_LEVEL', 'NAMES', 'ID', 'DATE_OF_BIRTH', 'DESIGNATION', 'STAFF'], axis=1, inplace=True)
+
             FF2.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE L&T.xlsx',index=False)
             FF3.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE(PIVOT) L&T.xlsx',index=False)
 
@@ -7936,8 +7992,8 @@ def MASTER_SALARY_TW(request):
 
             F=F.merge(A,left_on='ALLOCATED FOS',right_on='NAMES',how='left')
 
-            F.drop(['PHONE_NUMBER','DEPARTMENT_ID','END_DATE','HIRE_DATE','LOCATION_ID','SALARY','TYPE_OF_SALARY',
-                    'MANAGEMENT_LEVEL','NAMES'],axis=1,inplace=True)
+            F.drop(['PHONE_NUMBER','DEPARTMENT_ID','END_DATE','HIRE_DATE','LOCATION_ID','SALARY','TYPE_OF_SALARY', 'MANAGEMENT_LEVEL','NAMES', 'ID', 'DATE_OF_BIRTH'],axis=1,inplace=True)
+
 
             F.to_excel(r'C:\Users\abhinav kislay\Documents\Git Push\Essencia_Website\Main Website\media/COMBINED SALARY OF L_T AND IDFC TW/PER PAID CASE(Including Fixed Salary).xlsx',index=False)
 
@@ -9168,8 +9224,14 @@ def BAJAJ_MIS(request):
 
         MIS.columns
 
-        MIS.drop(['DEPARTMENT_ID', 'END_DATE', 'HIRE_DATE', 'PHONE_NUMBER', 'LOCATION_ID', 'SALARY', 'NAMES'], axis=1,
+        MIS.drop(['DEPARTMENT_ID', 'END_DATE', 'HIRE_DATE', 'PHONE_NUMBER', 'LOCATION_ID', 'SALARY', 'NAMES', 'ID', 'DATE_OF_BIRTH'], axis=1,
                  inplace=True)
+
+        for i in range(0, len(MIS['PERFORMANCE'])):
+            MIS.loc[i, 'PERFORMANCE'] = round(MIS.loc[i, 'PERFORMANCE'], 2)
+
+        for i in range(0, len(SS['PERFORMANCE'])):
+            SS.loc[i, 'PERFORMANCE'] = round(SS.loc[i, 'PERFORMANCE'], 2)
 
         MIS.to_excel(r'media/BAJAJ-CD/MIS/BAJAJ TC-WISE MIS.xlsx', index=False)
 
@@ -9402,11 +9464,6 @@ def IDFC_TW_SALARY_TC(request):
 
             F3.head()
 
-            F['Performance'] = round(F['Performance'], 2)
-            F['RB_Performance'] = round(F['RB_Performance'], 2)
-            F3['Performance'] = round(F3['Performance'], 2)
-            F3['RB_Performance'] = round(F3['RB_Performance'], 2)
-
             F = F.reset_index(drop=True)
             F3 = F3.reset_index(drop=True)
 
@@ -9429,21 +9486,20 @@ def IDFC_TW_SALARY_TC(request):
                     elif F.loc[i, 'Performance'] >= 88 and F.loc[i, 'Performance'] < 90:
                         F.loc[i, 'PAYOUT'] = 4000
                     elif F.loc[i, 'Performance'] >= 90:
-                        F.loc[i, 'PAYOUT'] = 5000
-                elif F.loc[i, 'BKT'] == 2:
-                    if F.loc[i, 'Performance'] < 70:
-                        F.loc[i, 'PAYOUT'] = 0
-                    elif F.loc[i, 'Performance'] >= 75 and F.loc[i, 'Performance'] < 80:
-                        F.loc[i, 'PAYOUT'] = 2000
-                    elif F.loc[i, 'Performance'] >= 80 and F.loc[i, 'Performance'] < 85:
-                        F.loc[i, 'PAYOUT'] = 4000
-                    elif F.loc[i, 'Performance'] >= 85 and F.loc[i, 'Performance'] < 90:
-                        F.loc[i, 'PAYOUT'] = 5000
-                    elif F.loc[i, 'Performance'] >= 90:
-                        F.loc[i, 'PAYOUT'] = 7000
-
+                # elif F.loc[i, 'BKT'] == 2:
+                #     if F.loc[i, 'Performance'] < 70:
+                #         F.loc[i, 'PAYOUT'] = 0
+                #     elif F.loc[i, 'Performance'] >= 75 and F.loc[i, 'Performance'] < 80:
+                #         F.loc[i, 'PAYOUT'] = 2000
+                #     elif F.loc[i, 'Performance'] >= 80 and F.loc[i, 'Performance'] < 85:
+                #         F.loc[i, 'PAYOUT'] = 4000
+                #     elif F.loc[i, 'Performance'] >= 85 and F.loc[i, 'Performance'] < 90:
+                #         F.loc[i, 'PAYOUT'] = 5000
+                #     elif F.loc[i, 'Performance'] >= 90:
+                #         F.loc[i, 'PAYOUT'] = 7000
             for i in range(0, len(F['TC NAME'])):
-                if (F.loc[i, 'BKT'] == 1) or (F.loc[i, 'BKT'] == 2):
+                if F.loc[i, 'BKT'] == 1:
+                    # (F.loc[i, 'BKT'] == 2):
                     if F.loc[i, 'RB_Performance'] < 15:
                         F.loc[i, 'RB_PAYOUT'] = 0
                     elif F.loc[i, 'RB_Performance'] >= 15 and F.loc[i, 'RB_Performance'] < 20:

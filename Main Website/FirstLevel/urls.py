@@ -58,4 +58,6 @@ urlpatterns = [
     path('down19/', views.IDFC_HL_SALARY_DOWNLOAD, name='IDFC_HL_SALARY_DOWNLOAD'),
     path('down20/', views.IDFC_HL_TL_INCENTIVE_DOWNLOAD, name='IDFC_HL_TL_INCENTIVE_DOWNLOAD'),
     path('down21/', views.IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD, name='IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD'),
+    path('down22/', views.IDFC_TW_TC_SALARY_DOWNLOAD, name='IDFC_TW_TC_SALARY_DOWNLOAD'),
+    path('down23/', views.L_T_TC_SALARY_DOWNLOAD, name='L_T_TC_SALARY_DOWNLOAD'),
 ]
