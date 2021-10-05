@@ -1,5 +1,7 @@
 from django.urls import path
 from . import views
+from django.views.generic.base import TemplateView
+
 
 app_name = 'basic_app'
 
@@ -17,7 +19,7 @@ urlpatterns = [
     path('strength/', views.strength, name='strength'),
     path('L_T_MIS/', views.L_T_MIS, name='L_T_MIS'),
     path('L_T_BILLING/', views.L_T_BILLING, name='L_T_BILLING'),
-    path('L_T_SALARY/', views.MASTER_SALARY_TW, name='L_T_TW'),
+    # path('L_T_SALARY/', views.MASTER_SALARY_TW, name='L_T_TW'),
     path('IDFC_TW_BILLING/', views.IDFC_TW_BILLING, name='IDFC_TW_BILLING'),
     path('IDFC_TW_MIS/', views.IDFC_TW_MIS, name='IDFC_TW_MIS'),
     path('IDFC_TW_SALARY/', views.MASTER_SALARY_TW, name='IDFC_TW_SALARY'),
@@ -60,4 +62,7 @@ urlpatterns = [
     path('down21/', views.IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD, name='IDFC_HL_FINAL_SALARY_INCENTIVE_DOWNLOAD'),
     path('down22/', views.IDFC_TW_TC_SALARY_DOWNLOAD, name='IDFC_TW_TC_SALARY_DOWNLOAD'),
     path('down23/', views.L_T_TC_SALARY_DOWNLOAD, name='L_T_TC_SALARY_DOWNLOAD'),
+    path('test/', TemplateView.as_view(template_name="salary.html"), name='salary'),
+    path('login/salary.html', views.MASTER_SALARY_TW, name='L_T_TW'),
+
 ]

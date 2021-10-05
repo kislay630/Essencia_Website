@@ -26,6 +26,7 @@
           padding-top: 0px;
           background-size: 550px 550px;
           background-color: black;
+
           }
 
       h1{
@@ -72,7 +73,7 @@
       text-align: center;
       font-size: 19px;
       float: left;
-      animation: slideMe 2s ease-in;
+      animation: slideMe 3s ease-in;
         }
 
       @keyframes slideMe{
@@ -110,12 +111,12 @@
     vertical-align: middle;
     font-size: 19px;
     float:right;
-    animation: slideMe2 5s ease-in;
+    animation: slideMe2 3s ease-in;
     }
 
     @keyframes slideMe2{
     0%{
-        transform: skewX(3deg) translateX(-1900px);
+        transform: skewX(3deg) translateX(-2000px);
     }
     100%{
         transform: skew(0deg);
@@ -132,14 +133,14 @@
     border-radius: 116px;
     width:654px;
     height:182px;
-    animation: slideMe3 7s ease-in;
+    animation: slideMe3 3s ease-in;
     font-size: 19px;
     float: left;
     }
 
     @keyframes slideMe3{
     0%{
-        transform: skewX(3deg) translateX(-1800px);
+        transform: skewX(3deg) translateX(-3000px);
     }
     100%{
         transform: skew(0deg);
@@ -150,7 +151,9 @@
     box-shadow: 0 0 40px 0px rgb(211 ,174 ,109);
     }
     @media(max-width:1500px) {
-
+    body{
+    overflow-y:scroll;
+        }
     .table1{
     margin-top: 85px;
    color: white;

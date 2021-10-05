@@ -8,6 +8,38 @@
     <title>ESSENCCIA OUTSOURCING</title>
     <link rel="stylesheet" href="{% static 'FirstLevel/css/home_base.css' %}">
     <style>
+   /* width */
+        ::-webkit-scrollbar {
+          width: 10px;
+        }
+
+        /* Track */
+        ::-webkit-scrollbar-track {
+          background: #f1f1f1;
+        }
+
+        /* Handle */
+        ::-webkit-scrollbar-thumb {
+          background: #888;
+        }
+
+        /* Handle on hover */
+        ::-webkit-scrollbar-thumb:hover {
+          background: #555;
+        }
+
+                table {
+          border-collapse: collapse;
+          width: 100%;
+        }
+
+        th, td {
+          text-align:center;
+          padding: 8px;
+        }
+
+        tr:nth-child(even) {background-color: #f2f2f2;}
+
         UL LI{
             FLOAT:left;
             WIDTH:160PX;
@@ -25,6 +57,11 @@
             TEXT-ALIGN: CENTER;
             FONT-SIZE: 15PX;
             }
+        nav{
+         position: -webkit-sticky;
+            position: sticky;
+        }
+
     </style>
 </head>
 <body>
@@ -98,7 +135,7 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="#"><STRONG>SALARIES</STRONG></A>
+                <A HREF="#"  target="frame"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:FULLERTON_OTR_BILLING' %}"><STRONG>PROFIT & LOSS</STRONG></A>
@@ -128,7 +165,7 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="#"><STRONG>SALARIES</STRONG></A>
+                <A HREF="#" ><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:FULLERTON_RECOVERY_BILLING' %}"><STRONG>PROFIT & LOSS</STRONG></A>
@@ -158,7 +195,7 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="{% url 'basic_app:IDFC_HL_SALARY' %}"><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:IDFC_HL_SALARY' %}" ><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:IDFC_HL_BILLING' %}"><STRONG>PROFIT & LOSS</STRONG></A>

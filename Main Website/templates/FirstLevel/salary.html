@@ -1,6 +1,7 @@
-{% extends 'FirstLevel/home_base.html' %}
-{% load static %}
-{% block body_block %}
+
+<!--{% extends 'FirstLevel/home_base.html' %}-->
+<!--{% load static %}-->
+<!--{% block body_block %}-->
 <p3 style="color:white;">{{Salary_Update}}</p3>
 <br>
 
@@ -168,9 +169,12 @@
             {% endfor %}
         </table>
      <br>
-    <a href="{% url 'basic_app:L_T_SALARY_FIXED_DOWNLOAD' %}">L_T_SALARY_FIXED_DOWNLOAD</a>
-    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD' %}">L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD</a>
-    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_DOWNLOAD' %}">L_T_SALARY_INCENTIVE_DOWNLOAD</a>
+    <br>
+    <a href="{% url 'basic_app:L_T_SALARY_FIXED_DOWNLOAD' %}" style="display:block;max-width:300px;width:50%;height: 25px;background:LINEAR-GRADIENT(-45deg, #FFE000 ,#e65c00);padding: 10px;text-align: center;border-radius: 5px;color: white;font-weight: bold;line-height: 25px; font-size:1.5vw">L_T_SALARY_FIXED_DOWNLOAD</a>
+    <br>
+    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD' %}" style="display:block;max-width:370px;width:50%;height: 25px;background:LINEAR-GRADIENT(-45deg, #FFE000 ,#e65c00);padding: 10px;text-align: center;border-radius: 5px;color: white;font-weight: bold;line-height: 25px; font-size:1.5vw">L_T_SALARY_INCENTIVE_PIVOT_DOWNLOAD</a>
+    <br>
+    <a href="{% url 'basic_app:L_T_SALARY_INCENTIVE_DOWNLOAD' %}" style="display:block;max-width:300px;width:50%;height: 25px;background:LINEAR-GRADIENT(-45deg, #FFE000 ,#e65c00);padding: 10px;text-align: center;border-radius: 5px;color: white;font-weight: bold;line-height: 25px; font-size:1.5vw">L_T_SALARY_INCENTIVE_DOWNLOAD</a>
     {% endif %}
 {% endif %}
 
@@ -300,6 +304,6 @@
 <!--    {% endfor %}-->
 <!--</table>-->
 
-<p3 style="color:white;>"{{error}}</p3>
+<p3 style="color:white;">{{error}}</p3>
 
-{% endblock %}
+<!--{% endblock %}-->

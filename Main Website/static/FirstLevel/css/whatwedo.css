@@ -1,40 +1,133 @@
+@font-face {
+   font-family: Accidental Presidency ;
+   src: url("C:\Users\abhinav kislay\Documents\sample project\homepage\fonts\accid_.ttff ");
+}
+@font-face {
+   font-family: Arial Narrow ;
+   src: url("C:\Users\abhinav kislay\Documents\sample project\homepage\fonts\ARIALN.ttff ");
+}
+@font-face {
+   font-family: Arial Narrow ;
+   src: url("C:\Users\abhinav kislay\Documents\sample project\homepage\fonts\ARIALNB.ttff ");
+}
+@font-face {
+   font-family: Arial Narrow;
+   src: url("C:\Users\abhinav kislay\Documents\sample project\homepage\fonts\ARIALNB_2.ttff ");
+}
+body{
+background-color: black;
+  background-image: url(images/image3.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: 50% 50% ;
+  background-size: 500px 450px;
+}
 .service{
-    margin-left: 45px;
-    margin-right: 45px;
+  margin-left: 45px;
+  margin-right: 45px;
+
+}
+h1{
+  color: white;
+  text-align: left;
+  font-family: Accidental Presidency;
+  margin-left: 33px;
+  margin-bottom: 0px;
 }
 
+
+ol.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  background-color:none;
+  text-align: left;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  margin-top: 10px;
+  margin-left: 19px;
+}
+ol.breadcrumb li {
+  display: inline;
+  font-size: 18px;
+}
+ol.breadcrumb li+li:before {
+  padding: 8px;
+  color: white;
+  content: "/\00a0";
+}
+ol.breadcrumb li a {
+  color: white;
+  text-decoration: none;
+}
+ol.breadcrumb li a:hover {
+  color: #01447e;
+  text-decoration: underline;
+}
 img{
-    width:215px;
+  max-width:215px;
+  width: 50%;
 }
-
 .img1{
+padding:30px;
     padding-left: 61px;
+  max-width:262px;
+  width:50%;
 }
+ .img2{
+   float:right;
+   margin-right:70px;
+   padding:30px;
+     max-width:262px;
+  width:50%;
 
-.img2{
-    float:right;
-    margin-right:70px;
-    padding:30px;
-}
-
+ }
 .img3{
-    margin-top: -3%;
-    margin-left: 41%;
-    margin-right: 34%;
-    width:262px;
-    height:146px;
+  margin-top: -3%;
+  margin-left: 41%;
+  margin-right: 34%;
+  max-width:262px;
+  width:50%;
+  height:146px;
 }
 
 .img4{
-    float:right;
-    padding-top: 23px;
-    padding-left: 57px;
-    padding-right:110px;
-    width:165px;
+  float:right;
+  padding-top: 23px;
+  padding-left: 57px;
+  padding-right:110px;
+  max-width:165px;
+  width:50%;
+
+
+}
+.img5{
+
+  padding-top: 120px;
+  padding-left: 63px;
+  max-width:565px;
+  width:150%;
+
 }
 
+@media(max-width:1200px){
+  .first,.second,.third{
+    display:flex;
+    justify-content:space-around;
+    flex-direction:column;
+    align-items: center;
+  }
+  .img1,.img2,.img3,.img4,.img5{
+    flex-basis:30%;
+    border-radius: 48px;
+    margin-bottom:5%;
+    padding:50px 12px;
+    box-sizing: border-box;
+    margin-left: 0px;
+    margin-right: 0px;
+    padding: 0px;
+  }
 .img5{
-    padding-top: 120px;
-    padding-left: 63px;
-    width:565px;
+  margin-left: 290px;
+}
+
 }
