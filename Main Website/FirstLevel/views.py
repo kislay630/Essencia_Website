@@ -10442,7 +10442,3 @@ def L_T_TW_SALARY_TC(request):
 
     return render(request, 'FirstLevel/salary.html', {'excel12334': excel_data12334, 'columns12334': C12334, 'DEPARTMENT': final_dep, 'PROCESS': final_process})
 
-def Test(request):
-    final_dep = DEP()
-    final_process = COMPANY_PROCESS()
-    return render(request, 'FirstLevel/login/salary.html',{'DEPARTMENT': final_dep, 'PROCESS': final_process})

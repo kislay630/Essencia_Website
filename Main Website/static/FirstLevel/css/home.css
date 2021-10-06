@@ -13,11 +13,3 @@ h1{
     font-size: 36px;
 }
 
-iframe{
-    margin-top: 0px;
-    height: 900px;
-    border-top: 1px solid black;
-    border-left: 1px solid black;
-    border-bottom: 1px solid black;
-    border-right: 3px solid  #d3ae6d;
-}

@@ -58,6 +58,20 @@ ul.block A{
     TRANSITION:0.25s;
     CURSOR:POINTER;
 }
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+  width: 100%;
+  border: 1px solid #ddd;
+}
+
+th, td {
+  text-align: centre;
+  padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
 @media all and (max-width:808px) {
   body{
     overflow: hidden;
