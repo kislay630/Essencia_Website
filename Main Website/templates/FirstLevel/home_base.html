@@ -65,8 +65,10 @@
     </style>
 </head>
 <body>
-{% if DEPARTMENT == 'TW' and PROCESS == 'IDFC' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
+{% if DEPARTMENT == 'TW' and PROCESS == 'IDFC' and Emp_Status == 'MANAGER' %}
+
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
 
@@ -76,16 +78,16 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="{% url 'basic_app:IDFC_TW_SALARY' %}" target="AB"><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:IDFC_TW_SALARY' %}" target="A"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:IDFC_TW_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:IDFC_TW_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
-                <A href=# target="AB"><STRONG>ANALYSIS</STRONG></A>
+                <A href=# target="A"><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:IDFC_TW_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:IDFC_TW_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:employee_database' %}"><STRONG>EMPLOYEES</STRONG></A>
@@ -95,9 +97,11 @@
             </ul>
         </UL>
     </NAV>
-
+  <br>
+  <br>
 {% elif PROCESS == 'L&T' and DEPARTMENT == 'TW' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
         </UL>
@@ -106,16 +110,16 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="{% url 'basic_app:L_T_TW' %}" target="AB"><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:L_T_TW' %}" target="A"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:L_T_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:L_T_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
-                <A href=# target="AB"><STRONG>ANALYSIS</STRONG></A>
+                <A href=# target="A"><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:L_T_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:L_T_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:employee_database' %}"><STRONG>EMPLOYEES</STRONG></A>
@@ -125,9 +129,11 @@
             </ul>
         </UL>
     </NAV>
-
+  <br>
+  <br>
 {% elif DEPARTMENT == 'OTR' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
         </UL>
@@ -136,16 +142,16 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="#"  target="AB"><STRONG>SALARIES</STRONG></A>
+                <A HREF="#"  target="A"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:FULLERTON_OTR_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:FULLERTON_OTR_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
                 <A href=#><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:FULLERTON_OTR_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:FULLERTON_OTR_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:employee_database' %}"><STRONG>EMPLOYEES</STRONG></A>
@@ -155,9 +161,11 @@
             </ul>
         </UL>
     </NAV>
-
+  <br>
+  <br>
 {% elif DEPARTMENT == 'RECOVERY' and PROCESS == 'FULLERTON' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
         </UL>
@@ -166,16 +174,17 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="#" target="AB" ><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:MASTER_SALARY_FULLERTON' %}" target="A"><STRONG>SALARIES</STRONG></A>
+
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:FULLERTON_RECOVERY_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:FULLERTON_RECOVERY_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
                 <A href=#><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:FULLERTON_RECOVERY_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:FULLERTON_RECOVERY_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:employee_database' %}"><STRONG>EMPLOYEES</STRONG></A>
@@ -185,9 +194,11 @@
             </ul>
         </UL>
     </NAV>
+  <br>
+  <br>
+{% elif PROCESS == 'IDFC' and DEPARTMENT == 'HL' and Emp_Status == 'MANAGER' %}
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
 
-{% elif PROCESS == 'IDFC' and DEPARTMENT == 'HL' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
         </UL>
@@ -196,16 +207,16 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="{% url 'basic_app:IDFC_HL_SALARY' %}" target="AB"><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:IDFC_HL_SALARY' %}" target="A"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:IDFC_HL_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:IDFC_HL_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
-                <A href=# target="AB"><STRONG>ANALYSIS</STRONG></A>
+                <A href=# target="A"><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:IDFC_HL_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:IDFC_HL_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
                 <A HREF= "{% url 'basic_app:employee_database' %}"><STRONG>EMPLOYEES</STRONG></A>
@@ -215,39 +226,11 @@
             </ul>
         </UL>
     </NAV>
-
+  <br>
+  <br>
 {% elif PROCESS == 'BAJAJ' and DEPARTMENT == 'CD' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
-        <UL class="img1">
-            <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
-        </UL>
-        <UL class="nav" style="float:right; margin-left:0px;margin-top:22px">
-            <LI>
-                <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
-            </LI>
-            <LI>
-                <A HREF="{% url 'basic_app:BAJAJ_SALARY' %}" target="AB"><STRONG>SALARIES</STRONG></A>
-            </LI>
-            <LI>
-                <A HREF= "{% url 'basic_app:BAJAJ_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
-            </LI>
-            <LI>
-                <A href=# target="AB"><STRONG>ANALYSIS</STRONG></A>
-            </LI>
-            <LI>
-                <A HREF= "{% url 'basic_app:BAJAJ_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
-            </LI>
-            <LI>
-                <A HREF= "{% url 'basic_app:employee_database' %}" target="AB"><STRONG>EMPLOYEES</STRONG></A>
-            </LI>
-            <ul class="block">
-                <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
-            </ul>
-        </UL>
-    </NAV>
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
 
-{% elif PROCESS == 'HERO' and DEPARTMENT == 'RECOVERY' %}
-    <NAV style="margin-top:0px;width:1400px;height:100px;margin-bottom:0px;">
         <UL class="img1">
             <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
         </UL>
@@ -256,25 +239,119 @@
                 <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
             </LI>
             <LI>
-                <A HREF="{% url 'basic_app:BAJAJ_SALARY' %}" target="AB"><STRONG>SALARIES</STRONG></A>
+                <A HREF="{% url 'basic_app:BAJAJ_SALARY' %}" target="A"><STRONG>SALARIES</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:BAJAJ_BILLING' %}" target="AB"><STRONG>BILLING</STRONG></A>
+                <A HREF= "{% url 'basic_app:BAJAJ_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
             </LI>
             <LI>
-                <A href=# target="AB"><STRONG>ANALYSIS</STRONG></A>
+                <A href=# target="A"><STRONG>ANALYSIS</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:BAJAJ_MIS' %}" target="AB"><STRONG>FILE MANAGEMENT</STRONG></A>
+                <A HREF= "{% url 'basic_app:BAJAJ_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
             </LI>
             <LI>
-                <A HREF= "{% url 'basic_app:employee_database' %}" target="AB"><STRONG>EMPLOYEES</STRONG></A>
+                <A HREF= "{% url 'basic_app:employee_database' %}" target="A"><STRONG>EMPLOYEES</STRONG></A>
             </LI>
             <ul class="block">
                 <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
             </ul>
         </UL>
     </NAV>
+  <br>
+  <br>
+{% elif PROCESS == 'HERO' and DEPARTMENT == 'RECOVERY' %}
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
+        <UL class="img1">
+            <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
+        </UL>
+        <UL class="nav" style="float:right; margin-left:0px;margin-top:22px">
+            <LI>
+                <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
+            </LI>
+            <LI>
+                <A HREF="{% url 'basic_app:BAJAJ_SALARY' %}" target="A"><STRONG>SALARIES</STRONG></A>
+            </LI>
+            <LI>
+                <A HREF= "{% url 'basic_app:BAJAJ_BILLING' %}" target="A"><STRONG>BILLING</STRONG></A>
+            </LI>
+            <LI>
+                <A href=# target="A"><STRONG>ANALYSIS</STRONG></A>
+            </LI>
+            <LI>
+                <A HREF= "{% url 'basic_app:BAJAJ_MIS' %}" target="A"><STRONG>FILE MANAGEMENT</STRONG></A>
+            </LI>
+            <LI>
+                <A HREF= "{% url 'basic_app:employee_database' %}" target="A"><STRONG>EMPLOYEES</STRONG></A>
+            </LI>
+            <ul class="block">
+                <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
+            </ul>
+        </UL>
+    </NAV>
+  <br>
+  <br>
+{% elif DEPARTMENT == 'TW' and PROCESS == 'IDFC' and Emp_Status == 'TL' %}
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
+        <UL class="img1">
+            <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
+        </UL>
+        <UL class="nav" style="float:right; margin-left:0px;margin-top:22px">
+            <LI>
+                <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
+            </LI>
+            <LI>
+                <A href=#><STRONG>ANALYSIS</STRONG></A>
+            </LI>
+            <ul class="block">
+                <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
+            </ul>
+        </UL>
+    </NAV>
+  <br>
+  <br>
+{% elif DEPARTMENT == 'TW' and PROCESS == 'IDFC' and Emp_Status == 'TC' %}
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
+        <UL class="img1">
+            <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
+        </UL>
+        <UL class="nav" style="float:right; margin-left:0px;margin-top:22px">
+            <LI>
+                <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
+            </LI>
+            <LI>
+                <A href=#><STRONG>ANALYSIS</STRONG></A>
+            </LI>
+            <ul class="block">
+                <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
+            </ul>
+        </UL>
+    </NAV>
+  <br>
+  <br>
+{% elif Emp_Status == 'FOS' %}
+          <NAV style="margin-top:0px;width:1595px;height:150px;margin-bottom:0px;position:fixed;background:black;top:0px;left:0px;">
+
+  <UL class="img1">
+            <IMG SRC= "{% static 'FirstLevel/images/logo.png' %}" WIDTH= "100">
+        </UL>
+        <UL class="nav" style="float:right; margin-left:0px;margin-top:22px">
+            <LI>
+                <A HREF="#"><STRONG>DASHBOARD</STRONG></A>
+            </LI>
+            <LI>
+                <A href=#><STRONG>ANALYSIS</STRONG></A>
+            </LI>
+            <ul class="block">
+                <A href="{% url 'basic_app:index' %}"><STRONG>LOGOUT</STRONG></A>
+            </ul>
+        </UL>
+    </NAV>
+  <br>
+  <br>
 
 {% endif %}
 {% block body_block %}
@@ -282,4 +359,4 @@
 {% endblock %}
 
 </body>
-</html>
+

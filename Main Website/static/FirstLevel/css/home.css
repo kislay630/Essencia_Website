@@ -13,3 +13,5 @@ h1{
     font-size: 36px;
 }
 
+p.like {border-style: inset;border-color:red;}
+

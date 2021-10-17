@@ -5,6 +5,9 @@ BODY{
     BACKGROUND-POSITION:50% 50% ;
     BACKGROUND-SIZE:600px 550px;
 }
+nav{
+width:1584px;
+}
 
 UL LI::after{
     content:'';
@@ -34,6 +37,7 @@ UL{
 .NAV{
     FLOAT:RIGHT;
     PADDING:34px 38px;
+    margin-right:26px;
 }
 
 /* ----------------------------------------THIS IS FOR LOGO AT NAV BAR ------------------------- */
